@@ -7,21 +7,21 @@ import threading
 import cv2
 import mediapipe as mp
 import time
-from mysite.pose_media import mediapipe_pose
+from pose_media import mediapipe_pose
 import csv
 import numpy as np
-from mysite.coordinate import Coor
+from coordinate import Coor
 import os
 from keras.models import load_model
 from keras import Sequential
-from mysite.train_dataset import pose_landmark_dataset
+from train_dataset import pose_landmark_dataset
 import random
 import io
 import PIL.Image as Image
 from gtts import gTTS
 import pygame
 from PIL import ImageFont, ImageDraw, Image
-from mysite.translate import return_sentence
+from translate import return_sentence
 
 
 # mediapipe 불러오기

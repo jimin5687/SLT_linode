@@ -1,7 +1,7 @@
 import cv2
 import mediapipe as mp
 import time
-from mysite.pose_media import mediapipe_pose
+from pose_media import mediapipe_pose
 import csv
 import numpy as np
 

@@ -1,10 +1,10 @@
 import cv2
 import mediapipe as mp
 import time
-from mysite.pose_media import mediapipe_pose
+from pose_media import mediapipe_pose
 import csv
 import numpy as np
-from mysite.coordinate import Coor
+from coordinate import Coor
 import os
 
 # mediapipe 불러오기
