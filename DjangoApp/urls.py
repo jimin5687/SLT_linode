@@ -1,4 +1,4 @@
-"""DjangoApp URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -13,9 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from os import name
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+import views
+from views import video_stream
 
 urlpatterns = [
+    path('', views.Home.as_view(), name='home'),
+
+    # four links according to the four bottons
+    path('video_stream', views.video_stream, name='video_stream'),
+    # path('render_camera_stream/', views.render_camera_stream, name='render_camera_stream'),
+    
+
     path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
