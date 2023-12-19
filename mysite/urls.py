@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 from mysite.core import views
 
 urlpatterns = [
-    path('http://172.233.79.110/', views.Home.as_view(), name='home'),
+    path('', views.Home.as_view(), name='home'),
 
     # four links according to the four bottons
     path('video_stream', views.video_stream, name='video_stream'),
