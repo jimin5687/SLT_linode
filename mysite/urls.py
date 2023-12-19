@@ -14,21 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from os import name
+# urls.py in mysite
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-import views
+from mysite.core import views  # Import views from the correct location
 
 urlpatterns = [
     path('', views.Home.as_view(), name='home'),
 
-    # four links according to the four bottons
+    # four links according to the four buttons
     path('video_stream/', views.video_stream, name='video_stream'),
     # path('render_camera_stream/', views.render_camera_stream, name='render_camera_stream'),
     
-
     path('admin/', admin.site.urls),
 ]
 
