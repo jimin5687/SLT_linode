@@ -24,9 +24,9 @@ def video_stream(request):
     # Return a StreamingHttpResponse with the streaming content
     return StreamingHttpResponse(stream_content(), content_type='multipart/x-mixed-replace;boundary=frame')
 
-def render_camera_stream(request):
+# def render_camera_stream(request):
     # Render the HTML template
     return render(request, 'camera_stream.html')
 
-def video_input(request):
-    return render(request, 'camera.html')
+# def video_input(request):
+#     return render(request, 'camera.html')
