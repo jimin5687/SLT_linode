@@ -7,7 +7,7 @@ from django.http import StreamingHttpResponse
 
 
 class Home(TemplateView):
-    template_name = 'base.html'
+    template_name = '/mysite/templates/base.html'
 
 
 
