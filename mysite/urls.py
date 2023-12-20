@@ -29,7 +29,6 @@ urlpatterns = [
     path('video_stream/', views.video_stream, name='video_stream'),
     # path('render_camera_stream/', views.render_camera_stream, name='render_camera_stream'),
     
-    path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:

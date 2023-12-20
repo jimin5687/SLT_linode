@@ -21,7 +21,7 @@ class mediapipe_pose:
     def draw_styled_landmarks(self,image, results):
         self.mp_drawing.draw_landmarks(image, results.pose_landmarks, self.mp_holistic.POSE_CONNECTIONS,
                                  self.mp_drawing.DrawingSpec(color=(112,112,112), thickness=2, circle_radius=1), 
-                                 self.mp_drawing.DrawingSpec(color=(94,200,0), thickness=2, circle_radius=1)
+                                 self.mp_drawing.DrawingSpec(color=(230,150,150), thickness=2, circle_radius=1)
                                  ) 
         # self.mp_drawing.draw_landmarks(image, results.face_landmarks, self.mp_holistic.FACEMESH_TESSELATION,
         #                          self.mp_drawing.DrawingSpec(color=(112,112,112), thickness=2, circle_radius=1), 
@@ -29,11 +29,11 @@ class mediapipe_pose:
         #                          ) 
         self.mp_drawing.draw_landmarks(image, results.left_hand_landmarks, self.mp_holistic.HAND_CONNECTIONS,
                                  self.mp_drawing.DrawingSpec(color=(112,112,112), thickness=2, circle_radius=1), 
-                                 self.mp_drawing.DrawingSpec(color=(94,200,0), thickness=2, circle_radius=1)
+                                 self.mp_drawing.DrawingSpec(color=(94,94,200), thickness=2, circle_radius=1)
                                  ) 
         self.mp_drawing.draw_landmarks(image, results.right_hand_landmarks, self.mp_holistic.HAND_CONNECTIONS,
                                  self.mp_drawing.DrawingSpec(color=(112,112,112), thickness=2, circle_radius=1), 
-                                 self.mp_drawing.DrawingSpec(color=(94,200,0), thickness=2, circle_radius=1)
+                                 self.mp_drawing.DrawingSpec(color=(94,94,200), thickness=2, circle_radius=1)
                                  ) 
         
     # point의 좌표를 찍어주는 함수
