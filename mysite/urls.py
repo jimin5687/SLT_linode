@@ -27,7 +27,7 @@ urlpatterns = [
 
     # four links according to the four buttons
     path('video_stream/', views.video_stream, name='video_stream'),
-    # path('render_camera_stream/', views.render_camera_stream, name='render_camera_stream'),
+    path('render_camera_stream/', views.render_camera_stream, name='render_camera_stream'),
     
 ]
 
