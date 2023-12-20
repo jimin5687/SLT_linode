@@ -142,7 +142,7 @@
       var desktopVideoBox = document.getElementById("desktopVideoBox");
       var mobileVideoBox = document.getElementById("mobileVideoBox");
       var videoPlayer = document.getElementById("videoPlayer");
-    
+  
       function handleVideoPlayback() {
         if (window.innerWidth <= 450) {
           desktopVideoBox.style.display = "none";
@@ -151,11 +151,12 @@
         } else {
           desktopVideoBox.style.display = "block";
           mobileVideoBox.style.display = "none";
+          videoPlayer.pause(); // Pause the video when switching to desktop view
         }
       }
-    
+  
       handleVideoPlayback();
-    
+  
       window.addEventListener("resize", function () {
         handleVideoPlayback();
       });
