@@ -4,7 +4,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 model = SentenceTransformer('jhgan/ko-sroberta-multitask')
 
-df = pd.read_excel("D:/SLT_Website_Django/SLT_linode/mysite/tt_text.xlsx")
+df = pd.read_excel("tt_text.xlsx")
 df['embedding'] = pd.Series([[]] * len(df))
 
 df['embedding'] = df['src'].map(lambda x: model.encode(x))
