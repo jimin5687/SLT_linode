@@ -87,7 +87,7 @@
     </li>
   </ul>
   
-  <div class="jb-box">
+  <div class="jb-box" id="desktopVideoBox">
     <video muted autoplay loop >
       <source src="{%static '/home.mp4' %}" type="video/mp4" >
     </video>
@@ -103,7 +103,7 @@
     </div>
   </div>
 
-  <div class="jb-box2">
+  <div class="jb-box2" id="mobileVideoBox">
     <video muted autoplay loop id="videoPlayer">
       <source src="{% static 'homeMobile1.mp4' %}" type="video/mp4">
       <!-- Add more sources as needed -->
@@ -139,10 +139,10 @@
   <script>
     // Add this script to control video playback based on screen width
     document.addEventListener("DOMContentLoaded", function () {
-      var desktopVideoBox = document.getElementById("desktopVideoBox");
-      var mobileVideoBox = document.getElementById("mobileVideoBox");
+      var desktopVideoBox = document.getElementById("jb-box");
+      var mobileVideoBox = document.getElementById("jb-box2");
       var videoPlayer = document.getElementById("videoPlayer");
-
+  
       function handleVideoPlayback() {
         if (window.innerWidth <= 450) {
           desktopVideoBox.style.display = "none";
@@ -153,9 +153,9 @@
           mobileVideoBox.style.display = "none";
         }
       }
-
+  
       handleVideoPlayback();
-
+  
       window.addEventListener("resize", function () {
         handleVideoPlayback();
       });
