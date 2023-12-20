@@ -142,33 +142,31 @@
     <video id="cameraview" width="720" height="480"></video>
   </div>
 
-<script>
-  // 카메라 권한을 요청하고 스트림을 받아오는 함수
-  function camInit(stream) {
-    var cameraView = document.getElementById("cameraview");
-    cameraView.srcObject = stream;
-    cameraView.play();
-}
+  <script>
+    // Function to request camera access and display the video
+    async function startCamera() {
+        try {
+            // Request camera access
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
 
-function camInitFailed(error) {
-    console.log("get camera permission failed : ", error)
-}
+            // Get the video element and set its source to the camera stream
+            const videoElement = document.getElementById('video');
+            videoElement.srcObject = stream;
 
-// Main init
+            // Play the video
+            videoElement.play();
 
-function mainInit() {
-    // Check navigator media device available
-    if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia )
-    {
-        // Navigator mediaDevices not supported
-        alert("Media Device not supported")
-        return;
+            // Additional actions upon successful camera access can be added here
+
+            // Display the video container
+            document.getElementById('video-container').style.display = 'block';
+        } catch (error) {
+            console.error('Camera access denied or an error occurred.', error);
+        }
     }
 
-    navigator.mediaDevices.getUserMedia({video:true})
-        .then(camInit)
-        .catch(camInitFailed);
-
-}
-
+    // Call the function when the page is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        startCamera();
+    });
 </script>
