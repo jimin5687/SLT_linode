@@ -28,7 +28,32 @@ mp_drawing = mp.solutions.drawing_utils
 media = mediapipe_pose()
 coor = Coor()
 
-cap = cv2.VideoCapture(2)
+import cv2
+
+camera_index_number = 0
+
+# def get_camera_index():
+#     for i in range(-5, 10):
+#         cap = cv2.VideoCapture(i)
+#         if cap.isOpened():
+#             cap.release()
+#             camera_index_number = 
+#     return 
+
+# camera_index = get_camera_index()
+
+def get_camera_index():
+    for i in range(10):  # 여기서 10은 임의로 선택한 상한값입니다.
+        cap = cv2.VideoCapture(i)
+        if cap.isOpened():
+            cap.release()
+            return i
+    return 500  # 사용 가능한 카메라를 찾지 못한 경우 -1을 반환하거나 다른 처리를 수행합니다.
+
+# 사용 가능한 카메라 인덱스 가져오기
+camera_index = get_camera_index()
+
+cap = cv2.VideoCapture(camera_index)
 
 model_path = os.path.join('mysite', 'models3', 'model.h5')
 
@@ -56,7 +81,7 @@ model = load_model(model_path, compile=False)
 
 class VideoCamera(object):
     def __init__(self):
-        self.video = cv2.VideoCapture(2)
+        self.video = cv2.VideoCapture(camera_index)
           
     def __del__(self):
         self.video.release()
