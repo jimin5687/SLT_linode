@@ -139,10 +139,10 @@
   <script>
     // Add this script to control video playback based on screen width
     document.addEventListener("DOMContentLoaded", function () {
-      var desktopVideoBox = document.getElementById("jb-box");
-      var mobileVideoBox = document.getElementById("jb-box2");
+      var desktopVideoBox = document.getElementById("desktopVideoBox");
+      var mobileVideoBox = document.getElementById("mobileVideoBox");
       var videoPlayer = document.getElementById("videoPlayer");
-  
+    
       function handleVideoPlayback() {
         if (window.innerWidth <= 450) {
           desktopVideoBox.style.display = "none";
@@ -153,9 +153,9 @@
           mobileVideoBox.style.display = "none";
         }
       }
-  
+    
       handleVideoPlayback();
-  
+    
       window.addEventListener("resize", function () {
         handleVideoPlayback();
       });
