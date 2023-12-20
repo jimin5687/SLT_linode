@@ -139,28 +139,36 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
   <div id="video-container">
-    <video id="video" width="640" height="480" autoplay></video>
+    <video id="cameraview" width="720" height="480"></video>
   </div>
 
 <script>
   // 카메라 권한을 요청하고 스트림을 받아오는 함수
-  async function startCamera() {
-      try {
-          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-          const videoElement = document.getElementById('video');
-          videoElement.srcObject = stream;
-          videoElement.play();
+  function camInit(stream) {
+    var cameraView = document.getElementById("cameraview");
+    cameraView.srcObject = stream;
+    cameraView.play();
+}
 
-          // 카메라 권한을 받아왔을 때의 추가 동작을 여기에 추가할 수 있습니다.
+function camInitFailed(error) {
+    console.log("get camera permission failed : ", error)
+}
 
-          document.getElementById('video-container').style.display = 'block';
-      } catch (error) {
-          console.error('카메라 권한을 허용하지 않았거나 오류가 발생했습니다.', error);
-      }
-  }
+// Main init
 
-  // 페이지 로드 시 카메라 권한을 요청
-  document.addEventListener('DOMContentLoaded', () => {
-      startCamera();
-  });
+function mainInit() {
+    // Check navigator media device available
+    if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia )
+    {
+        // Navigator mediaDevices not supported
+        alert("Media Device not supported")
+        return;
+    }
+
+    navigator.mediaDevices.getUserMedia({video:true})
+        .then(camInit)
+        .catch(camInitFailed);
+
+}
+
 </script>
