@@ -28,7 +28,7 @@ mp_drawing = mp.solutions.drawing_utils
 media = mediapipe_pose()
 coor = Coor()
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(2)
 
 model_path = os.path.join('mysite', 'models3', 'model.h5')
 
@@ -56,7 +56,7 @@ model = load_model(model_path, compile=False)
 
 class VideoCamera(object):
     def __init__(self):
-        self.video = cv2.VideoCapture(1)
+        self.video = cv2.VideoCapture(2)
           
     def __del__(self):
         self.video.release()
